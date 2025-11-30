@@ -1,0 +1,35 @@
+SQL Tutorial for Beginners (Complete Course using MySQL)
+Code With Harry
+https://www.youtube.com/watch?v=yE6tIle64tU
+
+00:00:00 Introduction  
+00:02:43 What is a Database?
+00:09:51 Windows Installation
+00:11:46 Linux Installation
+00:14:29 Mac OS Installation
+00:23:18 Creating a Table  
+00:29:17 Dropping the Database  
+00:30:00 Writing and Saving our SQL Script  
+00:32:45 Datatypes and Constraints in MySQL  
+00:37:50 Selecting Data From Table  
+00:40:25 Altering a Table  
+00:48:29 Inserting Data  
+00:57:38 Using Starter SQL  
+01:00:15 Querying Data  
+01:11:28 Updating the Data  
+01:18:06 Deleting Data  
+01:24:17 Constraints in Detail  
+01:35:20 Functions in MySQL  
+01:48:24 Auto Commit and Transactions  
+01:57:59 Primary Key & Auto Increment  
+02:04:08 Foreign Keys  
+02:17:58 MySQL Joins  
+02:28:11 UNION & UNION ALL in MySQL  
+02:38:32 Self Joins in MySQL  
+02:47:32 Views in MySQL  
+02:57:12 MySQL Indexes  
+03:06:53 Subqueries in MySQL  
+03:13:56 GROUP BY & HAVING in MySQL  
+03:23:59 Stored Procedures in MySQL  
+03:35:46 Triggers in MySQL  
+03:46:43 More on MySQL  

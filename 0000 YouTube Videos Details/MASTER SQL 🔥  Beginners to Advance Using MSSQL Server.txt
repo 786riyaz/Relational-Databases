@@ -1,0 +1,103 @@
+MASTER SQL 🔥 | Beginners to Advance Using MSSQL Server [HINDI]
+https://www.youtube.com/watch?v=4bTt1JbAp3M
+https://www.youtube.com/watch?v=s6M4qHGVcI8&list=PLGf6Ram2AQh2GpckMjstVH6AaTm0kPfgI
+
+Timelines
+-------------------
+00:00 COURSE INTRO
+02:29 TOPICS Overview
+05:37 Section-1 Overview
+05:51 What is a Database
+07:57 What is a DBMS
+10:24 What is a RDBMS
+13:24 SQL vs MSSQL
+14:50 MSSQL Installation
+15:15 Installation on Windows
+22:41 Installation on MAC
+29:54 Section-2 Overview
+30:50 Query for databases
+34:58 Overview of System DBs
+35:49 Creating a database
+37:14 Use Database
+39:52 Delete or Drop Database
+40:06 CRUD operation
+41:16 What is a Table
+43:40 Creating table
+46:46 Check details for table created
+48:18 INSERT Data
+52:22 READING Data
+53:55 UPDATE Data
+55:56 DELETE Data
+57:17 TRUNCATE 
+59:37 Exercise on CRUD
+01:02:52 Section-3
+01:03:01 What are Datatypes
+01:14:01 What are Constraints
+01:17:20 What is Primary Key
+01:21:42 What is Unique Key
+01:22:39 NOT NULL & DEFAULT Constraint
+01:27:07 TASK: Creating EMPLOYEE Table
+01:40:57 Section-4
+01:41:35 What are clauses
+01:42:49 WHERE Clause
+01:47:17 DISTINCT
+01:49:16 ORDER BY
+01:54:12 LIKE & TOP
+02:06:26 Exercise on SQL Clause
+02:07:19 Logical Operators
+02:11:18  IN, NOT IN, BETWEEN
+02:15:18 CASE 
+02:22:54 Section-5
+02:23:09 Aggregate Function
+02:27:09 GROUP BY
+02:34:34 Multi-Column Grouping
+02:37:53 HAVING Clause
+02:42:43 GROUP BY ROLLUP
+02:48:00 What is Sub Query & its types?
+02:54:35 Correlated Sub Query
+03:02:00 Inline View Sub Query
+03:06:05 Section-6 String Functions 
+03:18:27 Exercise on String Functions
+03:24:08 Date Functions
+03:31:25 Section-7 ALTER Query
+03:39:56 ADD/DROP Constraint
+03:45:22 CHECK Constraint
+03:54:40 Section-8 What is a Relationship
+03:59:04 What is Foreign KEY
+04:03:04 Types of Relationship
+04:07:13 Practical - 1 to Many 
+04:16:31 Cascade on Delete
+04:19:03 What are JOINS
+04:19:59 CROSS JOIN
+04:21:52 INNER JOIN
+04:29:27 LEFT & RIGHT JOIN
+04:32:24 FULL OUTER JOIN
+04:33:36 OUTER & CROSS APPLY
+04:40:36 UNION & EXCEPT
+04:43:35 What is SELF JOIN?
+04:50:05 Practical - Many to Many
+05:01:55 TASK - ESTORE DB
+05:24:50 What is VIEWS
+05:27:52 Window Functions
+05:36:15 ROW, RANK & DENSE_RANK
+05:43:37 LAG & LEAD
+05:56:20 Window Functions - ROWS BETWEEN
+06:06:14 FIRST & LAST VALUE and NTILE
+06:13:27 Benefits of Windows function
+06:14:25 CTE
+06:25:37 Stored Routine
+06:27:54 Stored Procedure (SP)
+06:30:39 SP with INPUT Parameters
+06:34:17 List down & ALTER SP
+06:37:27 UPDATE/INSERT with SP
+06:44:14 SP with OUTPUT Parameters
+06:50:26 Procedural Logic in SP
+07:06:49 User Defined Functions (Scalar)
+07:12:21 ITVF Function
+07:17:54 UDF Usecases
+07:26:17 Generate Random Data (5 Laks records)
+07:31:36 Indexes
+07:45:41 What are triggers
+08:02:22 What is Normalization
+08:08:00 Import & Export Databases
+08:12:19 Import Data from CSV
