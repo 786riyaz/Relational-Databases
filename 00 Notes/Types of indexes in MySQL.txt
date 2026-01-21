@@ -1,0 +1,284 @@
+types of indexes in MySQL
+
+---
+
+# Types of Indexes in MySQL
+
+In MySQL, an **index** is a data structure that improves the **speed of data retrieval** at the cost of **extra storage and slower writes**.
+
+---
+
+## 1. PRIMARY KEY Index
+
+### Definition
+
+* A **special unique index**
+* Cannot contain `NULL`
+* Only **one primary key per table**
+
+```sql
+CREATE TABLE users (
+  id INT PRIMARY KEY,
+  name VARCHAR(100)
+);
+```
+
+### Internal Behavior
+
+* In **InnoDB**, the primary key is a **clustered index**
+* Table data is **physically stored in primary key order**
+
+### Key Points (Interview Gold)
+
+* Fastest way to retrieve rows
+* Automatically creates an index
+* If no primary key is defined, InnoDB creates a **hidden clustered index**
+
+---
+
+## 2. UNIQUE Index
+
+### Definition
+
+* Ensures **no duplicate values**
+* Allows **one NULL value** (important difference from PK)
+
+```sql
+CREATE UNIQUE INDEX idx_email ON users(email);
+```
+
+### Use Cases
+
+* Email
+* Username
+* Aadhaar / PAN / Employee ID
+
+### Interview Tip
+
+> Primary Key = Unique + Not Null + One per table
+
+---
+
+## 3. NORMAL (NON-UNIQUE) Index
+
+### Definition
+
+* Allows duplicate values
+* Used purely for **performance optimization**
+
+```sql
+CREATE INDEX idx_city ON users(city);
+```
+
+### Use Cases
+
+* Columns frequently used in `WHERE`, `ORDER BY`, `GROUP BY`
+
+---
+
+## 4. COMPOSITE (MULTI-COLUMN) Index
+
+### Definition
+
+* Index on **multiple columns**
+
+```sql
+CREATE INDEX idx_name_city ON users(name, city);
+```
+
+### Important Rule: **Leftmost Prefix Rule**
+
+Index `(name, city)` works for:
+
+* `WHERE name = 'A'`
+* `WHERE name = 'A' AND city = 'Delhi'`
+
+Does NOT work for:
+
+* `WHERE city = 'Delhi'`
+
+### Interview Favorite Question
+
+**Why column order matters in composite indexes?**
+Because MySQL uses indexes from **left to right**.
+
+---
+
+## 5. FULLTEXT Index
+
+### Definition
+
+* Used for **text searching**
+* Supports natural language search
+
+```sql
+CREATE FULLTEXT INDEX idx_content ON posts(content);
+```
+
+```sql
+SELECT * FROM posts
+WHERE MATCH(content) AGAINST('react mysql');
+```
+
+### Key Points
+
+* Works on `CHAR`, `VARCHAR`, `TEXT`
+* Faster than `LIKE '%text%'`
+* Supports relevance scoring
+
+### Limitations
+
+* Not ideal for short words
+* Stopwords apply
+* Requires specific storage engines
+
+---
+
+## 6. SPATIAL Index
+
+### Definition
+
+* Used for **geospatial data**
+
+```sql
+CREATE SPATIAL INDEX idx_location ON places(location);
+```
+
+### Data Types
+
+* `POINT`
+* `LINESTRING`
+* `POLYGON`
+
+### Use Cases
+
+* Maps
+* Location-based search
+* Distance calculations
+
+---
+
+## 7. HASH Index (Engine-Specific)
+
+### Definition
+
+* Uses hash table instead of B-Tree
+* Available only in **MEMORY engine**
+
+### Characteristics
+
+* Extremely fast equality lookups (`=`)
+* Does NOT support:
+
+  * Range queries
+  * Sorting
+  * Partial matches
+
+```sql
+CREATE TABLE sessions (
+  session_id CHAR(32),
+  INDEX USING HASH (session_id)
+) ENGINE=MEMORY;
+```
+
+---
+
+## 8. CLUSTERED vs NON-CLUSTERED Index (Conceptual)
+
+### Clustered Index
+
+* Data stored **along with index**
+* In MySQL (InnoDB): **Primary Key**
+
+### Non-Clustered Index
+
+* Index stores pointer to actual data
+* All secondary indexes
+
+---
+
+## 9. INVISIBLE Index (Advanced / Optimization)
+
+### Definition
+
+* Index exists but **optimizer ignores it**
+
+```sql
+ALTER TABLE users ALTER INDEX idx_email INVISIBLE;
+```
+
+### Use Case
+
+* Testing index removal safely
+* Performance tuning
+
+---
+
+## 10. FUNCTIONAL Index (MySQL 8+)
+
+### Definition
+
+* Index on expression or function
+
+```sql
+CREATE INDEX idx_lower_email ON users ((LOWER(email)));
+```
+
+### Use Case
+
+* Case-insensitive searches
+* Derived values
+
+---
+
+## Comparison Table (Interview Friendly)
+
+| Index Type  | Unique  | NULL Allowed | Use Case             |
+| ----------- | ------- | ------------ | -------------------- |
+| Primary Key | Yes     | No           | Row identification   |
+| Unique      | Yes     | Yes          | Prevent duplicates   |
+| Normal      | No      | Yes          | Performance          |
+| Composite   | Depends | Yes          | Multi-column queries |
+| Fulltext    | No      | Yes          | Text search          |
+| Spatial     | No      | Yes          | Geo queries          |
+| Hash        | No      | No           | Fast equality        |
+| Functional  | Depends | Yes          | Expression-based     |
+
+---
+
+## Common Interview Questions
+
+### Q1. Why indexes speed up SELECT but slow down INSERT?
+
+Because indexes must be **updated on every write**.
+
+---
+
+### Q2. When should you NOT use an index?
+
+* Small tables
+* Columns with very low cardinality (e.g., `gender`)
+* Heavy write systems
+
+---
+
+### Q3. How many indexes should a table have?
+
+> As few as possible, as many as necessary.
+
+---
+
+## One-Line Summary (Perfect Interview Ending)
+
+> MySQL supports multiple index types such as Primary, Unique, Composite, Fulltext, Spatial, and Functional indexes, each optimized for specific query patterns and performance needs.
+
+---
+
+If you want next:
+
+* **How indexes work internally (B-Tree vs Hash)**
+* **Indexing strategy for large MERN applications**
+* **How to analyze indexes using `EXPLAIN`**
+* **Real interview SQL optimization scenarios**
+
+Just tell me what to continue.
